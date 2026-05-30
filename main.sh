@@ -2,9 +2,9 @@
 
 # Atahan Turna
 # 2420191030
-# [Siber Güvenlikte Linux İşletim Sistemleri Sertifikası](https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=0Koh8ej8B7)
-# [Docker Temelleri Sertifiksı](https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=rKjhardPrM)
-# [Linux Bash Sertifikası](https://credsverse.com/credentials/13693ae2-f036-49a6-8613-164d421b770e)
+# Siber Güvenlikte Linux İşletim Sistemleri Sertifikası: https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=0Koh8ej8B7
+# Docker Temelleri Sertifiksı: https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=rKjhardPrM
+# Linux Bash Sertifikası: https://credsverse.com/credentials/13693ae2-f036-49a6-8613-164d421b770e
 
 date -Iseconds > report.log
 
