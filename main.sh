@@ -2,9 +2,9 @@
 
 # Atahan Turna
 # 2420191030
-# Siber Güvenlikte Linux İşletim Sistemleri Sertifikası: https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=0Koh8ej8B7
+# Siber Güvenlikte Linux İşletim Sistemleri Sertifikası : https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=0Koh8ej8B7
 # Docker Temelleri Sertifiksı: https://www.btkakademi.gov.tr/portal/certificate/validate?certificateId=rKjhardPrM
-# Linux Bash Sertifikası: https://credsverse.com/credentials/13693ae2-f036-49a6-8613-164d421b770e
+# Linux Bash Sertifikası 3: https://credsverse.com/credentials/13693ae2-f036-49a6-8613-164d421b770e
 
 date -Iseconds > report.log
 
@@ -28,8 +28,8 @@ fi
 echo "Sifre Giriniz : "
 read PAROLA
 
-echo "$PAROLA" | gpg --batch --yes --passphrase-fd 0 --cipher-algo AES256 -c report.log
+gpg --batch --yes --passphrase "$PAROLA" --cipher-algo AES256 -c report.log
 
 rm report.log
 
-echo "Islem Tamamlandı."
+echo "Islem bitti."
