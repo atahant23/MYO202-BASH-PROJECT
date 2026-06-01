@@ -8,21 +8,12 @@
 
 date -Iseconds > report.log
 
-if [ "$(uname)" == "Darwin" ]; then
-    echo "--- SISTEM BILGILERI ---" >> report.log
-    system_profiler SPHardwareDataType >> report.log
-    
-    echo "--- AG VE DISK DETAYLARI ---" >> report.log
-    ifconfig >> report.log
-    diskutil info / >> report.log
-else
     echo "--- SISTEM DETAYLARI ---" >> report.log
     wmic cpu get name >> report.log
     wmic computersystem get totalphysicalmemory >> report.log
     wmic baseboard get product >> report.log
     wmic diskdrive get serialnumber >> report.log
     getmac >> report.log
-fi
 
 read -rp "Sifre Giriniz : " PAROLA
 
@@ -37,5 +28,5 @@ echo "Sifreli dosya aciliyor..."
 
 PAROLA="MYO+202"
 gpg --batch --yes --passphrase "$PAROLA" --output report.log --decrypt report.log.gpg
-
+ rm sistem_toplama.log
 echo "Islem bitti. Acilan veri: report.log"
