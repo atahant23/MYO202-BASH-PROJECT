@@ -8,16 +8,15 @@
 
 date -Iseconds > report.log
 
-
 if [ "$(uname)" == "Darwin" ]; then
-    echo "--- MAC SISTEM BILGILERI ---" >> report.log
+    echo "--- SISTEM BILGILERI ---" >> report.log
     system_profiler SPHardwareDataType >> report.log
     
     echo "--- AG VE DISK DETAYLARI ---" >> report.log
     ifconfig >> report.log
     diskutil info / >> report.log
 else
-    echo "--- WINDOWS SISTEM DETAYLARI ---" >> report.log
+    echo "--- SISTEM DETAYLARI ---" >> report.log
     wmic cpu get name >> report.log
     wmic computersystem get totalphysicalmemory >> report.log
     wmic baseboard get product >> report.log
@@ -25,11 +24,18 @@ else
     getmac >> report.log
 fi
 
-echo "Sifre Giriniz : "
-read PAROLA
+read -rp "Sifre Giriniz : " PAROLA
 
 gpg --batch --yes --passphrase "$PAROLA" --cipher-algo AES256 -c report.log
 
 rm report.log
+echo "Log dosyasi sifrelendi (report.log.gpg oluşturuldu)."
 
-echo "Islem bitti."
+echo "------------------------------------------------"
+
+echo "Sifreli dosya aciliyor..."
+
+PAROLA="MYO+202"
+gpg --batch --yes --passphrase "$PAROLA" --output report.log --decrypt report.log.gpg
+
+echo "Islem bitti. Acilan veri: report.log"
